@@ -3,6 +3,8 @@ package dropred_api.com.services.interfaces;
 import java.util.List;
 import java.util.Map;
 
+import dropred_api.com.responses.BaseResponse;
+
 public interface FilterInterface<T> {
     /**
      * count all page size
@@ -11,7 +13,9 @@ public interface FilterInterface<T> {
      * @param size  page size
      * @return total page size
      */
-    int maxPage(Map<String, String> filters, int size);
+    default BaseResponse<Map<String, Integer>> maxPage(Map<String, String> filters, int size) {
+        return maxPage(filters, size);
+    }
 
     /**
      * get all data
@@ -29,7 +33,7 @@ public interface FilterInterface<T> {
      * @param sort sort by
      * @return list of data
      */
-     default List<T> filter(Map<String, String> filters, int page, int size, String sortDiraction, String sortBy)
+     default BaseResponse<List<T>> filter(Map<String, String> filters, int page, int size, String sortDiraction, String sortBy)
         {
             return filter(filters, page, size, sortDiraction, sortBy);
         }

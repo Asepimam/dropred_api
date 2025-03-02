@@ -3,13 +3,13 @@ package dropred_api.com.dtos;
 public class ProductDTO {
     private String name;
     private String description;
-    private String price;
+    private double price;
     // private String category;
     private String image;
     // private String stock;
     private String id;
 
-    public ProductDTO(String name, String description, String price,String image,String id) {
+    public ProductDTO(String name, String description, double price,String image,String id) {
         this.name = name;
         this.description = description;
         this.price = price;
@@ -36,11 +36,11 @@ public class ProductDTO {
         this.description = description;
     }
 
-    public String getPrice() {
+    public double getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
